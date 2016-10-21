@@ -1,0 +1,48 @@
+<!--<link rel="import" href="../bower_components/polymer/polymer.html">-->
+
+<dom-module id="my-sticky">
+    <template>
+        <style>
+            textarea {
+                resize: none;
+                background-color: transparent;
+            }
+            .sticky {
+                background-color: red;
+                display: inline-block;
+                margin: 15px;
+                max-width: 100%;
+            }
+
+            @media only screen and (min-width: 768px) {
+                .sticky {
+                    max-width: 45%;
+                }
+            }
+
+            @media only screen and (min-width: 1028px) {
+                .sticky {
+                    margin-left: 22px;
+                    max-width: 46%;
+                }
+            }
+
+            @media only screen and (min-width: 1200px) {
+                .sticky {
+                    max-width: 39%;
+                }
+            }
+
+        </style>
+
+        <div class="sticky">
+            <textarea rows="5">Lorem ipsum dolor sit amet, consectetur adipiscing elit.Duis leo tellus, imperdiet vitae sollicitudin ut, commodo ut libero.Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;In ut tempus felis.Proin velit erat, tempor et molestie vitae, fermentum a neque.</textarea>
+        </div>
+    </template>
+
+    <script>
+        var STICKY = Polymer({
+            is: 'my-sticky'
+        });
+    </script>
+</dom-module>

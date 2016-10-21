@@ -41,12 +41,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <link rel="apple-touch-icon" sizes="144x144" href="/images/manifest/icon-144x144.png">
     <link rel="apple-touch-icon" sizes="192x192" href="/images/manifest/icon-192x192.png">
 
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
     <!-- Tile icon for Windows 8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="/images/manifest/icon-144x144.png">
     <meta name="msapplication-TileColor" content="#3f51b5">
     <meta name="msapplication-tap-highlight" content="no">
 
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
     <script>
+
+      //Constanst
+
+      const GOOD = "GOOD";
+      const NEED_SUPPORT = "NEED_SUPPORT";
+      const HELP_METHOD = "HELP_METHOD";
+
       // Setup Polymer options
       window.Polymer = {
         dom: 'shadow',
@@ -92,7 +104,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </script>
 
-    <link rel="import" href="/src/my-app.html">
+    <link rel="import" href="/src/my-table.html">
+    <link rel="import" href="/src/my-sticky.html">
 
     <style>
       body {
@@ -105,7 +118,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
   </head>
   <body>
-    <my-app></my-app>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 col-lg-4">
+        <my-table name="GOOD" title="Amik jól mentek"></my-table>
+      </div>
+      <div class="col-sm-12 col-lg-4">
+        <my-table name="NEED_SUPPORT" title="Amiken javítani kell"></my-table>
+      </div>
+      <div class="col-sm-12 col-lg-4">
+        <my-table name="HELP_METHOD" title="Intézkedési tételek"></my-table>
+      </div>
+    </div>
+  </div>
     <!-- Built with love using Polymer Starter Kit -->
   </body>
 </html>
