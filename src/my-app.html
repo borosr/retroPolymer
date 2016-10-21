@@ -26,7 +26,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template>
     <style>
       :host {
-        --app-primary-color: #4285f4;
+        --app-primary-color: #acd1f4;
         --app-secondary-color: black;
 
         display: block;
@@ -37,11 +37,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         background-color: var(--app-primary-color);
       }
       app-header paper-icon-button {
-        --paper-icon-button-ink-color: white;
+        --paper-icon-button-ink-color: #e3e3d6;
       }
 
-      .drawer-list {
-        margin: 0 20px;
+      .floating-box {
+          display:inline-block;
+          margin: 10px;
       }
 
       .drawer-list a {
@@ -63,46 +64,37 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <app-location route="{{route}}"></app-location>
-    <app-route
-        route="{{route}}"
-        pattern="/:page"
-        data="{{routeData}}"
-        tail="{{subroute}}"></app-route>
-
-    <app-drawer-layout fullbleed>
-      <!-- Drawer content -->
-      <app-drawer>
-        <app-toolbar>Menu</app-toolbar>
-        <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="view1" href="/view1">View One</a>
-          <a name="view2" href="/view2">View Two</a>
-          <a name="view3" href="/view3">View Three</a>
-        </iron-selector>
-      </app-drawer>
+    <app-drawer-layout>
 
       <!-- Main content -->
-      <app-header-layout has-scrolling-region>
+      <app-header-layout align="center">
 
         <app-header condenses reveals effects="waterfall">
           <app-toolbar>
-            <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
             <div main-title>My App</div>
           </app-toolbar>
         </app-header>
-
-        <iron-pages
-            selected="[[page]]"
-            attr-for-selected="name"
-            fallback-selection="view404"
-            role="main">
-          <my-view1 name="view1"></my-view1>
-          <my-view2 name="view2"></my-view2>
-          <my-view3 name="view3"></my-view3>
-          <my-view404 name="view404"></my-view404>
-        </iron-pages>
       </app-header-layout>
     </app-drawer-layout>
+
+    <div style="width: 100%" align="center">
+        <div class="floating-box" style="background-color: #8bff10; width: 400px" align="center">
+            <div>Amik jól mentek</div>
+            <div>elso</div>
+        </div>
+
+        <div class="floating-box" style="background-color: #ff0911; width: 400px" align="center">
+            <div>Amiken javítani kell</div>
+            <div>masodik</div>
+        </div>
+
+        <div class="floating-box" style="background-color: #f6ff1b; width: 400px" align="center">
+            <div>Intézkedési tételek</div>
+            <div>harmadik</div>
+        </div>
+
+    </div>
+
   </template>
 
   <script>
@@ -117,23 +109,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
-      observers: [
-        '_routePageChanged(routeData.page)'
-      ],
-
-      _routePageChanged: function(page) {
-        this.page = page || 'view1';
-      },
-
-      _pageChanged: function(page) {
-        // Load page import on demand. Show 404 page if fails
-        var resolvedPageUrl = this.resolveUrl('my-' + page + '.html');
-        this.importHref(resolvedPageUrl, null, this._showPage404, true);
-      },
-
-      _showPage404: function() {
-        this.page = 'view404';
-      }
     });
   </script>
 </dom-module>
