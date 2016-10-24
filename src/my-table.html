@@ -8,25 +8,29 @@
   <template>
     <style>
       :host {
-        --app-primary-color: #acd1f4;
+        --app-primary-color: #faeeb6;
         --app-secondary-color: black;
 
       }
       .wall-title {
         text-align: center;
-        font-size: 20px;
+        font-size: x-large;
         font-weight: bold;
+        font-family: "Brush Script MT";
         border-style: solid;
+        border-width: thin;
+
+
       }
       .sticky-wall {
-        background-color: #00b8d4;
-        border-style: solid;
+        background-color: #ffffff;
+        border-style: none;
       }
 
 
     </style>
 
-    <div class="wall-title">[[title]]
+    <div class="wall-title" style="background-color: #faeeb6">[[title]]
      <paper-icon-button icon="add" on-click="click"></paper-icon-button>
     </div>
     <div class="sticky-wall">
