@@ -1,5 +1,6 @@
 <!--<link rel="import" href="../bower_components/polymer/polymer.html">-->
-
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
 <dom-module id="my-sticky">
     <template>
         <style>
@@ -42,20 +43,37 @@
         </style>
 
         <div class="sticky">
-            <textarea rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>
-            <p class="counter">[[point]]</p>
-        </div>
+            <paper-card>
+                <div class="card-actions horizontal justified">
+                    <div id="card-content">
+                        Good things happen..
+
+                    </div>
+                    <paper-icon-button icon="favorite"></paper-icon-button>
+                    <paper-icon-button icon="create"></paper-icon-button>
+                    <paper-icon-button icon="delete"></paper-icon-button>
+                </div>
+            </paper-card>
+            <!--    <textarea rows="5" readonly>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</textarea>
+                <p class="counter">[[point]]</p>-->
+            </div>
+
     </template>
 
+
+
     <script>
-        var STICKY = new Polymer({
+
+        var STICKY;
+        STICKY = new Polymer({
             is: 'my-sticky',
             properties: {
-                point : {
-                   type : Number,
-                    value : 0
+                point: {
+                    type: Number,
+                    value: 0
                 }
-            }
+            },
+
         });
     </script>
 </dom-module>
