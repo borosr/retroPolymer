@@ -7,6 +7,8 @@
             textarea {
                 resize: none;
                 background-color: transparent;
+                height: 100px;
+                border-style: hidden;
             }
             .sticky {
                 display: inline-block;
@@ -44,12 +46,11 @@
         <div class="sticky">
             <paper-card>
                 <div class="card-actions horizontal justified">
-                    <div id="card-content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        <br>
-                    </div>
-                    <paper-icon-button icon="favorite"></paper-icon-button>
-                    <paper-icon-button icon="create"></paper-icon-button>
+                    <textarea disabled="true">[[text]]</textarea>
+                    <br/>
+                    [[point]]
+                    <paper-icon-button icon="favorite" on-click="counter"></paper-icon-button>
+                    <paper-icon-button icon="create" on-click="editText"></paper-icon-button>
                 </div>
             </paper-card>
             </div>
@@ -67,9 +68,18 @@
                 point: {
                     type: Number,
                     value: 0
+                },
+                text: {
+                    type: String,
+                    value: ""
                 }
             },
-
+            counter : function () {
+                this.point++;
+            },
+            editText : function () {
+                this.text += "Lorem ipsum!";
+            }
         });
     </script>
 </dom-module>
