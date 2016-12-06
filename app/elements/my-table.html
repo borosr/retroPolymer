@@ -27,8 +27,7 @@
       .sticky-wall {
         background-color: inherit;
         border-style: none;
-        width: 90%;
-        margin-left: 5%;
+        width: 100%;
       }
 
 
@@ -52,8 +51,19 @@
       },
       click : function () {
         const STICKY_WALL_INDEX = 3;
-        var sticky = document.createElement("my-sticky");
-        Polymer.dom(this.childNodes.item(STICKY_WALL_INDEX)).appendChild(sticky);
+        if(this.name == "GOOD")
+        {
+          var sticky = document.createElement("my-greenSticky");
+          Polymer.dom(this.childNodes.item(STICKY_WALL_INDEX)).appendChild(sticky);
+        }else if(this.name == "NEED_SUPPORT")
+        {
+          var sticky = document.createElement("my-redSticky");
+          Polymer.dom(this.childNodes.item(STICKY_WALL_INDEX)).appendChild(sticky);
+        }else if(this.name == "HELP_METHOD")
+        {
+          var sticky = document.createElement("my-blueSticky");
+          Polymer.dom(this.childNodes.item(STICKY_WALL_INDEX)).appendChild(sticky);
+        }
       }
 
     });

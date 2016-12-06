@@ -1,2 +1,10 @@
+<<<<<<< HEAD
 node_modules/
 .idea/
+=======
+node_modules
+dist
+bower_components
+.tmp
+.publish/
+>>>>>>> solve_2
