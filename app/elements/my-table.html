@@ -1,0 +1,72 @@
+<link rel="import" href="../../node_modules/npm-polymer-elements/polymer/polymer.html">
+<link rel="import" href="../../node_modules/npm-polymer-elements/iron-icons/iron-icons.html">
+<link rel="import" href="../../node_modules/npm-polymer-elements/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="import" href="../../node_modules/bootstrap/dist/css/bootstrap.css">
+
+<!--<script src="../src/js/main.js"></script>-->
+
+<dom-module id="my-table">
+  <template>
+    <style>
+      :host {
+        --app-primary-color: #faeeb6;
+        --app-secondary-color: black;
+
+      }
+      .wall-title {
+        text-align: center;
+        font-size: x-large;
+        font-weight: bold;
+        font-family: "Bradley Hand ITC";
+        border-style: solid;
+        border-width: thin;
+
+
+      }
+      .sticky-wall {
+        background-color: inherit;
+        border-style: none;
+        width: 100%;
+      }
+
+
+    </style>
+    <div class="wall-title" style="background-color: #faeeb6">[[title]]
+      <paper-icon-button icon="add" on-click="click"></paper-icon-button>
+    </div>
+    <div class="sticky-wall">
+      <br>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'my-table',
+
+      properties: {
+        name : String,
+        title : String
+      },
+      click : function () {
+        const STICKY_WALL_INDEX = 3;
+        if(this.name == "GOOD")
+        {
+          var sticky = document.createElement("my-greenSticky");
+          Polymer.dom(this.childNodes.item(STICKY_WALL_INDEX)).appendChild(sticky);
+        }else if(this.name == "NEED_SUPPORT")
+        {
+          var sticky = document.createElement("my-redSticky");
+          Polymer.dom(this.childNodes.item(STICKY_WALL_INDEX)).appendChild(sticky);
+        }else if(this.name == "HELP_METHOD")
+        {
+          var sticky = document.createElement("my-blueSticky");
+          Polymer.dom(this.childNodes.item(STICKY_WALL_INDEX)).appendChild(sticky);
+        }
+      }
+
+    });
+
+  </script>
+</dom-module>
