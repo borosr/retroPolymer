@@ -1,0 +1,75 @@
+<!--<link rel="import" href="../bower_components/polymer/polymer.html">-->
+<link rel="import" href="../../node_modules/npm-polymer-elements/paper-card/paper-card.html">
+<link rel="import" href="../../node_modules/npm-polymer-elements/paper-button/paper-button.html">
+<dom-module id="my-sticky">
+  <template>
+    <style>
+      textarea {
+        resize: none;
+        background-color: transparent;
+      }
+      .sticky {
+        display: inline-block;
+        margin: 16px;
+        background-color: #eaff9e;
+        max-width: 100%;
+        box-shadow: 5px 5px 20px #646464;
+      }
+
+      .counter {
+        text-align: left;
+        margin : 0;
+      }
+
+      @media only screen and (min-width: 768px) {
+        .sticky {
+          max-width: 45%;
+        }
+      }
+
+      @media only screen and (min-width: 1028px) {
+        .sticky {
+          max-width: 46%;
+        }
+      }
+
+      @media only screen and (min-width: 1200px) {
+        .sticky {
+          max-width: 39%;
+        }
+      }
+
+    </style>
+
+    <div class="sticky">
+      <paper-card>
+        <div class="card-actions horizontal justified">
+          <div id="card-content">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            <br>
+          </div>
+          <paper-icon-button icon="favorite"></paper-icon-button>
+          <paper-icon-button icon="create"></paper-icon-button>
+        </div>
+      </paper-card>
+    </div>
+
+  </template>
+
+
+
+  <script>
+
+    var STICKY;
+    STICKY = new Polymer({
+      is: 'my-sticky',
+      properties: {
+        point: {
+          type: Number,
+          value: 0
+        }
+      },
+
+    });
+  </script>
+</dom-module>
